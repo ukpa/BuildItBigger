@@ -14,18 +14,30 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     dexOptions {
         javaMaxHeapSize "4g"
     }
+    productFlavors{
+        demo{
+            applicationId 'com.udacity.gradle.builditbigger.demo'
+            versionName '1.0-demo'
+
+        }
+        full{
+            applicationId 'com.udacity.gradle.builditbigger.full'
+            versionName '1.0-full'
+
+        }
+
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // Added for AdMob
     compile project(':javajokelib')
     compile project(':jokeAndroidLibrary')
     compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
