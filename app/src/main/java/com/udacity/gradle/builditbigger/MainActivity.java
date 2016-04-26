@@ -61,7 +61,7 @@ public class MainActivity extends ActionBarActivity {
                 Intent i = new Intent(MainActivity.this, JokeDisplayActivity.class);
                 i.putExtra("joke",joke);
                 startActivity(i);
-                spinner.setVisibility(View.INVISIBLE);
+                spinner.setVisibility(View.GONE);
 
             }
         }).execute();
