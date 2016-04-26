@@ -56,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void executeJoke(String joke) {
                 Intent i = new Intent(MainActivity.this, JokeDisplayActivity.class);
-                i.putExtra("joke",myClass.getRandomJoke());
+                i.putExtra("joke",joke);
                 startActivity(i);
 
             }
