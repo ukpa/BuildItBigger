@@ -9,6 +9,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.MyClass;
@@ -51,6 +52,8 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view){
         //Toast.makeText(this,myClass.getRandomJoke(), Toast.LENGTH_SHORT).show();
+        final ProgressBar spinner= (ProgressBar)findViewById(R.id.loadingSpinner);
+        spinner.setVisibility(View.VISIBLE);
 
         new EndpointsAsyncTask(new Listener() {
             @Override
@@ -58,6 +61,7 @@ public class MainActivity extends ActionBarActivity {
                 Intent i = new Intent(MainActivity.this, JokeDisplayActivity.class);
                 i.putExtra("joke",joke);
                 startActivity(i);
+                spinner.setVisibility(View.INVISIBLE);
 
             }
         }).execute();
